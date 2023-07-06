@@ -12,17 +12,19 @@ function Row({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
+      //console.log(request);
       setMovies(request.data.results);
       return request;
     }
     fetchData();
-  }, [fetchUrl]);
+  }, [fetchUrl]); //to change whenever fetchUrl changes
 
   const opts = {
-    height: "390",
-    width: "99%",
+    height: "390", //390px
+    width: "99%", //percent of screen
     playerVars: {
-      autoplay: 0,
+      //https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
     },
   };
 
@@ -31,12 +33,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
-      movieTrailer(null, { tmdbId: movie.id })
+      movieTrailer(null, { tmdbId: movie.id }) //npm module//gives url or error
         .then((url) => {
-          console.log("url is " + url);
-          const urlParams = new URLSearchParams(new URL(url).search);
-          console.log("urlParamsn" + urlParams);
-          setTrailerUrl(urlParams.get("v"));
+          //console.log("url is " + url);
+          //https://ww.youtube.com/watch?v=XtMThy8QKqU
+          const urlParams = new URLSearchParams(new URL(url).search); //allows next function to occur
+          //console.log("urlParamsn" + urlParams);
+          setTrailerUrl(urlParams.get("v")); //video id
         })
         .catch((error) => console.log(error));
     }
@@ -65,6 +68,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
       </div>
     </div>
   );
+  //on documentation
 }
 
 export default Row;

@@ -1,7 +1,7 @@
 * {
-  margin: 0;
+  margin: 0;/*originally browser gives a different margin*/
 }
 
 .app {
-  background-color: rgb(5, 4, 4);
+  background-color: rgb(0, 0, 0);
 }

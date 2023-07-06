@@ -1,25 +1,25 @@
 .row {
-    color: #fff;
-    margin-left: 20px;
+    color: white;
+    margin-left: 20px;/*to push elements to right,headings*/
 }
 
 .row_posters {
-    display: flex;
-    overflow-y: hidden;
+    display: flex;/*to make posters come horizontally*/
+    overflow-y: hidden;/*scroll bar is hidden*/
     overflow-x: scroll;
-    padding: 20px;
+    padding: 20px;/*so that images dont crop out on hivering*/
 }
 
-.row_posters::-webkit-scrollbar {
+.row_posters::-webkit-scrollbar {/*rule*/
     display: none;
 }
 
 .row_poster {
-    object-fit: contain;
+    object-fit: contain;/*keeps the ascpect ratio,even when we change the browser it changes the image accordingly*/
     width: 100%;
     max-height: 100px;
     margin-right: 10px;
-    transition: transform 450ms;
+    transition: transform 400ms;/*changes size slowly*/
 }
 
 .row_poster:hover {

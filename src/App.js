@@ -12,7 +12,7 @@ function App() {
       <Banner />
       <Row
         title="Action Movies"
-        isLargeRow
+        isLargeRow={true}
         fetchUrl={requests.fetchActionMovies}
       />
       <Row title="Top Tv" fetchUrl={requests.fetchNetflixOriginals} />
